@@ -1,0 +1,47 @@
+syntax = "proto3";
+package Proto;
+
+message SyncPid{
+    int64 Pid=1;
+    float Speed=2;
+}
+
+message MoveSphere{
+    int64 Pid=1;
+    float Horizontal=2;
+    float Vertical=3;
+}
+
+message Position {
+    float x=1;
+    float y=2;
+    float z=3;
+}
+
+message Rotation {
+    float x=1;
+    float y=2;
+    float z=3;
+    float w=4;
+}
+
+message Transform{
+    Position Position=1;
+    Rotation rotation=2;
+}
+
+message SyncPlayer{
+    int64 pid=1;
+    Transform transform=2;
+}
+
+message SyncCube{
+    int64 cid=1;
+    Transform Transform=2;
+}
+
+message Sync{
+    int64 frame=1;
+    repeated SyncPlayer players=2;
+    repeated SyncCube cubes=3;
+}
