@@ -23,7 +23,6 @@ public:
     void accept_thread();
     void read_clients_thread();
     void send_to_clients_thread();
-    //void answer_to_client(); //todo 可改成update逻辑 一次update发送队列里的包
 
     std::vector<Request*> read();
 
@@ -37,7 +36,6 @@ private:
     boost::shared_mutex _cs;
 
     boost::lockfree::spsc_queue<Request*> _recv_queue;
-    //int _pcnt = 0;  //todo  玩家数 用于分配pid 暂时这么设计
 
     //std::function<void(std::shared_ptr<Connection>)> onConnStart;
     //std::function<void(int)> onConnStop;    //todo 玩家下线

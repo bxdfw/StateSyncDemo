@@ -7,8 +7,7 @@ void Connection::send(int id, const char data[], size_t n){
 }
 
 bool Connection::send_to_client(){
-    //todo write
-    //todo 一次写1024bytes？
+    //todo buffer_size 配置
     const size_t buffer_size = 1024 * 512;
     char write_buffer[buffer_size];
     size_t already_write = 0;
@@ -29,7 +28,7 @@ bool Connection::send_to_client(){
     boost::system::error_code err;
     _socket.write_some(boost::asio::buffer(write_buffer,already_write),err);
     if(err){
-        spdlog::error("socket write error: {}", err.to_string());
+        spdlog::debug("socket write error: {}", err.to_string());
         return false;
     }
 

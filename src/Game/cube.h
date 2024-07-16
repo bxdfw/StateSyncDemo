@@ -1,3 +1,6 @@
+#ifndef CUBE_H
+#define CUBE_H
+
 #include "../Physics/physx_manager.h"
 
 //todo 体积、密度等交给cube管理
@@ -17,11 +20,4 @@ private:
     physx::PxRigidDynamic* _physics;
 };
 
-physx::PxVec3 Cube::position(){
-    return _physics->getGlobalPose().p;
-}
-
-physx::PxVec4 Cube::rotation(){
-    auto q = _physics->getGlobalPose().q;
-    return physx::PxVec4(q.x,q.y,q.z,q.w);
-}
+#endif //CUBE_H
