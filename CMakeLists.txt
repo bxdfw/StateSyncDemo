@@ -22,8 +22,11 @@ set(SOURCE_FILES
     src/Game/player.h
     src/Game/player.cc
     src/Game/cube.h
+    src/Game/cube.cc
     src/Game/world_manager.h
+    src/Game/world_manager.cc
     src/Physics/physx_manager.h
+    src/Physics/physx_manager.cc
     src/Physics/game_object.h
     src/Net/conn_manager.h
     src/Server/Server.h
