@@ -20,7 +20,7 @@ public:
     Message* answer_to_client();
     bool send_to_client();
     void stop();
-    bool is_socket_open(){ return _socket.is_open();}
+    bool is_socket_open(){return _socket.is_open();}
     //void recv();
 private:
     //bool timed_out() const;   //todo 客户端长期不动掉线 + 断线重连

@@ -33,7 +33,7 @@ void WorldManager::sync_all(int64_t frame){
     std::vector<int> to_remove;
     for(auto p : _players){
         if(!p.second->_conn->is_socket_open()){
-            to_remove.push_back(p.first);
+            to_remove.push_back(p.second->_pid);
             continue;
         }
 
@@ -60,7 +60,17 @@ void WorldManager::sync_all(int64_t frame){
     }
 
     for(int i : to_remove){
+        spdlog::debug("remove player id=%d",i);
         remove_player(i);
+        Proto::PlayerOffline po;
+        po.set_pid(i);
+        size_t size = po.ByteSizeLong();
+        std::vector<char> binary_array(size);
+        if(po.SerializeToArray(binary_array.data(),size)){
+             broadcast(204,binary_array.data(), size);
+        }else{
+            spdlog::error("PlayerManager::sync_all() serialized message id=204 error");
+        }
     }
 
     //todo 限制一次同步的方块数量 可能会造成一个包过大

@@ -48,6 +48,9 @@ namespace Proto {
 class MoveSphere;
 struct MoveSphereDefaultTypeInternal;
 extern MoveSphereDefaultTypeInternal _MoveSphere_default_instance_;
+class PlayerOffline;
+struct PlayerOfflineDefaultTypeInternal;
+extern PlayerOfflineDefaultTypeInternal _PlayerOffline_default_instance_;
 class Position;
 struct PositionDefaultTypeInternal;
 extern PositionDefaultTypeInternal _Position_default_instance_;
@@ -72,6 +75,7 @@ extern TransformDefaultTypeInternal _Transform_default_instance_;
 }  // namespace Proto
 PROTOBUF_NAMESPACE_OPEN
 template<> ::Proto::MoveSphere* Arena::CreateMaybeMessage<::Proto::MoveSphere>(Arena*);
+template<> ::Proto::PlayerOffline* Arena::CreateMaybeMessage<::Proto::PlayerOffline>(Arena*);
 template<> ::Proto::Position* Arena::CreateMaybeMessage<::Proto::Position>(Arena*);
 template<> ::Proto::Rotation* Arena::CreateMaybeMessage<::Proto::Rotation>(Arena*);
 template<> ::Proto::Sync* Arena::CreateMaybeMessage<::Proto::Sync>(Arena*);
@@ -1463,6 +1467,154 @@ class Sync final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_msg_2eproto;
 };
+// -------------------------------------------------------------------
+
+class PlayerOffline final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Proto.PlayerOffline) */ {
+ public:
+  inline PlayerOffline() : PlayerOffline(nullptr) {}
+  ~PlayerOffline() override;
+  explicit PROTOBUF_CONSTEXPR PlayerOffline(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  PlayerOffline(const PlayerOffline& from);
+  PlayerOffline(PlayerOffline&& from) noexcept
+    : PlayerOffline() {
+    *this = ::std::move(from);
+  }
+
+  inline PlayerOffline& operator=(const PlayerOffline& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline PlayerOffline& operator=(PlayerOffline&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const PlayerOffline& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const PlayerOffline* internal_default_instance() {
+    return reinterpret_cast<const PlayerOffline*>(
+               &_PlayerOffline_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(PlayerOffline& a, PlayerOffline& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(PlayerOffline* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(PlayerOffline* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  PlayerOffline* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<PlayerOffline>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const PlayerOffline& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const PlayerOffline& from) {
+    PlayerOffline::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(PlayerOffline* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Proto.PlayerOffline";
+  }
+  protected:
+  explicit PlayerOffline(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPidFieldNumber = 1,
+  };
+  // int64 pid = 1;
+  void clear_pid();
+  int64_t pid() const;
+  void set_pid(int64_t value);
+  private:
+  int64_t _internal_pid() const;
+  void _internal_set_pid(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Proto.PlayerOffline)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int64_t pid_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_msg_2eproto;
+};
 // ===================================================================
 
 
@@ -2242,9 +2394,35 @@ Sync::cubes() const {
   return _impl_.cubes_;
 }
 
+// -------------------------------------------------------------------
+
+// PlayerOffline
+
+// int64 pid = 1;
+inline void PlayerOffline::clear_pid() {
+  _impl_.pid_ = int64_t{0};
+}
+inline int64_t PlayerOffline::_internal_pid() const {
+  return _impl_.pid_;
+}
+inline int64_t PlayerOffline::pid() const {
+  // @@protoc_insertion_point(field_get:Proto.PlayerOffline.pid)
+  return _internal_pid();
+}
+inline void PlayerOffline::_internal_set_pid(int64_t value) {
+  
+  _impl_.pid_ = value;
+}
+inline void PlayerOffline::set_pid(int64_t value) {
+  _internal_set_pid(value);
+  // @@protoc_insertion_point(field_set:Proto.PlayerOffline.pid)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

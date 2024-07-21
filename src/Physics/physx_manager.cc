@@ -49,10 +49,10 @@ void PhysxManager::initialize(){
     }
 #endif
 
-    //todo
+    //todo  地面
     physx::PxTransform cubePose = physx::PxTransform(physx::PxVec3(0.0f, -0.1f, 0.0f), physx::PxIdentity);
 
-    physx::PxBoxGeometry cubeGeometry(25.0f, 0.1f, 25.0f); // 大小为10x1x10
+    physx::PxBoxGeometry cubeGeometry(25.0f, 0.1f, 25.0f); // 大小为50x0.2x50
     physx::PxRigidStatic* cube = physx::PxCreateStatic(*_physics, cubePose, cubeGeometry, *_physics->createMaterial(0.5f, 0.5f, 0.5f));
     // 将立方体添加到场景中
     _scene->addActor(*cube);
