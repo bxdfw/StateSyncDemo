@@ -45,3 +45,7 @@ message Sync{
     repeated SyncPlayer players=2;
     repeated SyncCube cubes=3;
 }
+
+message PlayerOffline{
+    int64 pid=1;
+}
